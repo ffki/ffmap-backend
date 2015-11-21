@@ -1,0 +1,12 @@
+#MAILTO=email@example.com
+
+# Freifunk Map Updates
+
+PATH=/usr/sbin:/usr/bin:/sbin:/bin
+
+* * * * *	www-data	/opt/ffmap-backend/mkmap.sh /opt/ffmap-backend/json/ > /dev/null 2>&1
+#0 0 * * *	www-data	find /opt/ffmap-backend/nodedb/ -name '*.rrd' -ctime 8 -execdir rm '{}' +
+#0 1 * * *	www-data	find /opt/ffmap-backend/nodeplots/ -name '*.png' -ctime 1 -execdir rm '{}' +
+
+# EOF
+

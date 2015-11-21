@@ -1,0 +1,26 @@
+#!/bin/bash -e
+
+#echo "$0 $@" > /dev/stderr
+
+while test $# -gt 0; do
+	case "$1" in
+		-m)
+			shift
+			;;
+		-*)
+			;;
+		*)
+			C=$1
+			;;
+	esac
+	shift
+done
+
+case "$C" in
+	gw)
+		jq -r ".$C" json/batman.json
+		;;
+	gwl)
+		jq -r ".$C" json/batman.json | base64 -d
+		;;
+esac

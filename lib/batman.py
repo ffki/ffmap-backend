@@ -56,8 +56,8 @@ class Batman(object):
         into an array of dictionaries.
         """
         cmd = ['batctl', '-m', self.mesh_interface, 'gwl', '-n']
-        if os.geteuid() > 0:
-            cmd.insert(0, 'sudo')
+        #if os.geteuid() > 0:
+        #    cmd.insert(0, 'sudo')
         output = subprocess.check_output(cmd, env=self.environ)
         output_utf8 = output.decode('utf-8')
         rows = output_utf8.splitlines()
@@ -85,8 +85,8 @@ class Batman(object):
         return: tuple mode, bandwidth, if mode != server then bandwidth is None
         """
         cmd = ['batctl', '-m', self.mesh_interface, 'gw']
-        if os.geteuid() > 0:
-            cmd.insert(0, 'sudo')
+        #if os.geteuid() > 0:
+        #    cmd.insert(0, 'sudo')
         output = subprocess.check_output(cmd, env=self.environ)
         chunks = output.decode("utf-8").split()
 

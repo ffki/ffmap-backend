@@ -1,0 +1,6 @@
+#!/bin/bash -e
+
+#echo "$0 $@" > /dev/stderr
+
+jq -r .vis json/batman.json | base64 -d | gzip -dc
+

@@ -12,6 +12,18 @@ The output will be written to a directory (`-d output`).
 
 Run `backend.py --help` for a quick overview of all available options.
 
+#Install
+
+###Debian jessie
+
+ * python3-networkx
+
+###Debian wheezy
+ 
+ * `apt-get install pip3-python`
+ * pip-3.2 install networkx
+ * `jq` on wheezy is availiable wheezy-backports
+
 For the script's regular execution add the following to the crontab:
 
 <pre>
@@ -24,10 +36,16 @@ For the script's regular execution add the following to the crontab:
 - Python 3 Package [Networkx](https://networkx.github.io/)
 - [alfred-json](https://github.com/tcatm/alfred-json)
 - rrdtool (if run with `--with-rrd`)
+- jq
 
 # Running as unprivileged user
 
 Some information collected by ffmap-backend requires access to specific system resources.
+
+## Branch that works on external machines
+In this branch we added a `bin/` folder with dummy binaries for alfred, sudo, batctl and batadv-vis so you can run this on a server that is not connected to the batman network and doesn't need alfred and batman installed.
+
+## running on a maschine in the batman network
 
 Make sure the user you are running this under is part of the group that owns the alfred socket, so
 alfred-json can access the alfred daemon.
