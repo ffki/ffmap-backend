@@ -1,0 +1,18 @@
+[
+  {
+    "node_id": "feedbeffff00",
+    "hostname": "nord-gw0",
+    "network": {
+      "mesh": {
+        "bat0": {
+          "interfaces": {
+            "tunnel": [
+              "fe:ed:be:ff:ff:00",
+              "fe:ed:be:ef:ff:00"
+            ]
+          }
+        }
+      }
+    }
+  }
+]

@@ -1,6 +1,7 @@
 #!/bin/bash -e
 
 SOURCE="http://vpn0.ffnord.net"
+PEERS="/home/fastdform/keys"
 DEST="$1"
 [ -d "$DEST" ] || exit 1
 
@@ -9,8 +10,9 @@ cd "$(dirname "$0")"/
 wget -q -O json/alfred.158.json "$SOURCE/alfred.cgi?158"
 wget -q -O json/alfred.159.json "$SOURCE/alfred.cgi?159"
 wget -q -O json/batman.json 	"$SOURCE/batman.cgi"
-
-PATH="$(dirname "$0")/bin:$PATH" ./backend.py -d $DEST --prune 999 --vpn fe:ed:be:ff:ff:00
+	
+python2 ./generate_aliases.py $PEERS > ./aliases.json
+PATH="$(dirname "$0")/bin:$PATH" ./backend.py -d $DEST -a ./aliases.json --prune 999 --vpn fe:ed:be:ff:ff:00
 
 # the file blacklist contains long and latitude values, that should be replaced in the form
 # 53.123456, 10.123456/53.456789, 10.456789
