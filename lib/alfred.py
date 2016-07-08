@@ -13,7 +13,7 @@ class Alfred(object):
             raise RuntimeError('alfred: invalid unix socket path given')
 
     def _fetch(self, data_type):
-        cmd = ['alfred-json',
+        cmd = ['/usr/bin/alfred-json',
                '-z',
                '-f', 'json',
                '-r', str(data_type)]

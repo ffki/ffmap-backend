@@ -43,7 +43,7 @@ class Batman(object):
         Parse "batadv-vis -i <mesh_interface> -f json"
         into an array of dictionaries.
         """
-        cmd = ['batadv-vis', '-i', self.mesh_interface, '-f', 'json']
+        cmd = ['/opt/alfred/vis/batadv-vis', '-i', self.mesh_interface, '-f', 'json']
         if self.alfred_sock:
             cmd.extend(['-u', self.alfred_sock])
         output = subprocess.check_output(cmd, env=self.environ)
