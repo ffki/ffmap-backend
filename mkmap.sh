@@ -3,6 +3,7 @@ FFMAPPATH='/opt/ffmap-backend'
 TMPPATH='/tmp/ffmap-backend'
 mkdir -p $TMPPATH
 cd $FFMAPPATH
+cp json/nodes.json $TMPPATH/
 python3 $FFMAPPATH/backend.py -d /$TMPPATH/ --aliases $FFMAPPATH/gateway.json -m bat-ffki:/var/run/alfred.bat-ffki.sock -p 62 --vpn de:ad:be:ef:ff:02 de:ad:be:ff:ff:01 de:ad:be:ff:ff:03 de:ad:be:ff:ff:00
 cp /$TMPPATH/* /$FFMAPPATH/json/
 #python3 $FFMAPPATH/backend.py -d /$FFMAPPATH/json/ -m bat-ffki:/var/run/alfred.bat-ffki.sock -p 62 --vpn de:ad:be:ef:ff:02 de:ad:be:ff:ff:01 de:ad:be:ff:ff:03 de:ad:be:ff:ff:00
