@@ -1,4 +1,9 @@
 #!/bin/bash
+if [ `ps -e | grep -c $(basename $0)` -gt 2 ]; then 
+  echo $(basename $0) is already running
+  exit 0
+fi
+
 load=`grep -o "^." /proc/loadavg`
 if [ "$load" -gt 0 ]; then
   #exit if load is equal or bigger than 1.0
