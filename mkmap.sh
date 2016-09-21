@@ -1,4 +1,9 @@
 #!/bin/bash
+load=`grep -o "^." /proc/loadavg`
+if [ "$load" -gt 0 ]; then
+  #exit if load is equal or bigger than 1.0
+  exit 1
+fi
 FFMAPPATH='/opt/ffmap-backend'
 TMPPATH='/tmp/ffmap-backend'
 mkdir -p $TMPPATH
