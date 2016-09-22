@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ `ps -e | grep -c $(basename $0)` -gt 2 ]; then 
+if [ $(pgrep -c $(basename $0)) -gt 0 ]; then 
   echo $(basename $0) is already running
   exit 0
 fi
