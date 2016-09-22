@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ $(pgrep -c $(basename $0)) -gt 0 ]; then 
+if [ $(pgrep -c $(basename $0)) -gt 1 ]; then 
   echo $(basename $0) is already running
   exit 0
 fi
